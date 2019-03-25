@@ -1,3 +1,4 @@
+package Implementation.Easy;
 import java.util.Scanner;
 
 public class SequenceEquation {

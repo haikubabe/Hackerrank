@@ -1,3 +1,4 @@
+package Implementation.Easy;
 import java.util.Scanner;
 
 public class CutTheSticks {
@@ -28,17 +29,18 @@ public class CutTheSticks {
         for (int i=0;i<n;i++) {
             arr[i] = scanner.nextInt();
         }
-        int sticksCut = n;
+        int sticksCut = 0;
         int lengthOfCut = min(arr);
-        while (sticksCut>=1) {
-            System.out.println(sticksCut);
-            for (int i=0;i<n;i++) {
-                if (arr[i]!=0) {
-                    arr[i] = arr[i]-lengthOfCut;
+        while (sticksCut >= 0 && lengthOfCut != Integer.MAX_VALUE) {
+            sticksCut = 0;
+            for (int i = 0; i < n; i++) {
+                if (arr[i] >= lengthOfCut) {
+                    arr[i] = arr[i] - lengthOfCut;
+                    sticksCut++;
                 }
             }
+            System.out.println(sticksCut);
             lengthOfCut = min(arr);
-            sticksCut = length(arr);
         }
     }
 }
